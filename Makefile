@@ -12,8 +12,8 @@ DIR_BIN=bin
 
 all: $(DIR_BIN)/$(EXEC)
 
-$(DIR_BIN)/$(EXEC): $(DIR_OBJ)/main.o $(DIR_OBJ)/variable.o $(DIR_OBJ)/fonction.o
-	$(CC) $(DIR_OBJ)/main.o -o $(DIR_BIN)/$(EXEC)
+$(DIR_BIN)/$(EXEC): $(DIR_OBJ)/main.o $(DIR_OBJ)/variable.o $(DIR_OBJ)/fonction.o $(DIR_OBJ)/monome.o
+	$(CC) $(DIR_OBJ)/main.o $(DIR_OBJ)/variable.o $(DIR_OBJ)/fonction.o $(DIR_OBJ)/monome.o -o $(DIR_BIN)/$(EXEC)
 
 $(DIR_OBJ)/main.o: $(DIR_SRC)/main.cpp $(DIR_SRC)/fonction.hpp $(DIR_SRC)/variable.hpp
 	$(CC) -c $(DIR_SRC)/main.cpp -o $(DIR_OBJ)/main.o $(CFLAGS)
@@ -23,6 +23,9 @@ $(DIR_OBJ)/variable.o: $(DIR_SRC)/variable.cpp $(DIR_SRC)/variable.hpp
 
 $(DIR_OBJ)/fonction.o: $(DIR_SRC)/fonction.cpp $(DIR_SRC)/fonction.hpp $(DIR_SRC)/variable.hpp
 	$(CC) -c $(DIR_SRC)/fonction.cpp -o $(DIR_OBJ)/fonction.o $(CFLAGS)
+
+$(DIR_OBJ)/monome.o: $(DIR_SRC)/monome.cpp $(DIR_SRC)/monome.hpp $(DIR_SRC)/fonction.hpp $(DIR_SRC)/variable.hpp
+	$(CC) -c $(DIR_SRC)/monome.cpp -o $(DIR_OBJ)/monome.o $(CFLAGS)
 
 clean:
 	rm $(DIR_OBJ)/*.o
