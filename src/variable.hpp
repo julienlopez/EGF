@@ -1,7 +1,7 @@
 #ifndef __VARIABLE_HPP__
 #define __VARIABLE_HPP__
 
-#include "global.hpp" //<Global>
+#include <Global>
 
 #include <set>
 

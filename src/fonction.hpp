@@ -1,7 +1,7 @@
 #ifndef __FONCTION_HPP__
 #define __FONCTION_HPP__
 
-#include "variable.hpp"
+#include <Variable>
 
 class Fonction
 {

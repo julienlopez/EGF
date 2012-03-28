@@ -1,6 +1,6 @@
 CC=g++
-CFLAGS=-Wall
-CFLAGS_TEST=-Wall -I C:\prog\cppunit-1.12.1\include
+CFLAGS=-Wall -I include
+CFLAGS_TEST=-Wall -I C:\prog\cppunit-1.12.1\include -I include
 LDFLAGS_TEST= -LC:\prog\cppunit-1.12.1\lib -lcppunit
 EXEC=Geom
 
