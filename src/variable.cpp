@@ -1,6 +1,7 @@
 #include "variable.hpp"
+#include "variablehandler.hpp"
 
-Variable::type_map Variable::s_variables;
+#include <cassert>
 
 bool Variable::Cle::operator()(const Variable* v1, const Variable* v2) const
 {
@@ -9,26 +10,21 @@ bool Variable::Cle::operator()(const Variable* v1, const Variable* v2) const
 
 uchar Variable::nom() const
 {
-	return 'x';
+	return m_nom;
 }
 
 Variable* Variable::getVariable(uchar c)
 {
-    for(type_map::const_iterator i = s_variables.begin(); i != s_variables.end(); ++i)
-        if(i->first == c) return i->second;
-    Variable* v = new Variable(c);
-    s_variables[c] = v;
-    return v;
+    return VariableHandler::getVariable(c);
 }
 
-Variable::Variable()
-{}
-
-Variable::Variable(uchar c)
-{}
-
-Variable::Variable(const Variable& v)
-{}
+Variable::Variable(uchar c): m_nom(c)
+{
+	VariableHandler::addVariable(this);
+}
 
 Variable& Variable::operator=(const Variable& v)
-{}
+{
+	m_nom = v.m_nom;
+	return *this;
+}
