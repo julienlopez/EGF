@@ -7,7 +7,7 @@ class Monome : public Fonction
 {
 	public:
 		Monome() = delete;
-		Monome(Variable* v, double multiplicateur = 1, uint exposant = 1);
+		Monome(Fonction* f, double multiplicateur = 1, uint exposant = 1);
 		Monome(const Monome& m);
 		virtual ~Monome();
 
@@ -20,7 +20,7 @@ class Monome : public Fonction
 	protected:
 
 	private:
-        Variable* m_v;
+        Fonction* m_f;
         double m_multiplicateur;
         uint m_exposant;
 };
