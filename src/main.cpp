@@ -1,4 +1,4 @@
-#include <Monome>
+#include <MonomeSimple>
 
 #include <iostream>
 
@@ -10,10 +10,13 @@ int main()
 
 	Variable* u = Variable::getVariable('u');
 
-	Monome& m = *new Monome(u, 1.58, 2);
+	MonomeSimple& m = *new MonomeSimple(u, 1.58, 2);
 
 	cerr << m << endl;
 
-	Monome& m2 = *m.derivee(u);
+	MonomeSimple& m2 = *m.derivee(u);
 	cerr << m2 << endl;
+
+	MonomeSimple& m3 = *m.primitive(u);
+	cerr << m3 << endl;
 }

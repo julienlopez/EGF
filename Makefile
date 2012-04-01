@@ -12,8 +12,11 @@ DIR_BIN=bin
 
 all: $(DIR_BIN)/$(EXEC)
 
-$(DIR_BIN)/$(EXEC): $(DIR_OBJ)/main.o $(DIR_OBJ)/variable.o $(DIR_OBJ)/fonction.o $(DIR_OBJ)/monome.o $(DIR_OBJ)/variablehandler.o $(DIR_OBJ)/fonctionhandler.o
-	$(CC) $(DIR_OBJ)/main.o $(DIR_OBJ)/variable.o $(DIR_OBJ)/fonction.o $(DIR_OBJ)/monome.o $(DIR_OBJ)/variablehandler.o $(DIR_OBJ)/fonctionhandler.o -o $(DIR_BIN)/$(EXEC)
+Debug: all
+Release: all
+
+$(DIR_BIN)/$(EXEC): $(DIR_OBJ)/main.o $(DIR_OBJ)/variable.o $(DIR_OBJ)/fonction.o $(DIR_OBJ)/monome.o $(DIR_OBJ)/monomesimple.o $(DIR_OBJ)/variablehandler.o $(DIR_OBJ)/fonctionhandler.o $(DIR_OBJ)/sinus.o $(DIR_OBJ)/somme.o
+	$(CC) $(DIR_OBJ)/main.o $(DIR_OBJ)/variable.o $(DIR_OBJ)/fonction.o $(DIR_OBJ)/monome.o $(DIR_OBJ)/monomesimple.o $(DIR_OBJ)/variablehandler.o $(DIR_OBJ)/fonctionhandler.o  $(DIR_OBJ)/sinus.o $(DIR_OBJ)/somme.o -o $(DIR_BIN)/$(EXEC)
 
 $(DIR_OBJ)/main.o: $(DIR_SRC)/main.cpp $(DIR_SRC)/fonction.hpp $(DIR_SRC)/variable.hpp
 	$(CC) -c $(DIR_SRC)/main.cpp -o $(DIR_OBJ)/main.o $(CFLAGS)
@@ -30,8 +33,17 @@ $(DIR_OBJ)/fonction.o: $(DIR_SRC)/fonction.cpp $(DIR_SRC)/fonction.hpp $(DIR_SRC
 $(DIR_OBJ)/monome.o: $(DIR_SRC)/monome.cpp $(DIR_SRC)/monome.hpp $(DIR_SRC)/fonction.hpp $(DIR_SRC)/variable.hpp
 	$(CC) -c $(DIR_SRC)/monome.cpp -o $(DIR_OBJ)/monome.o $(CFLAGS)
 
+$(DIR_OBJ)/monomesimple.o: $(DIR_SRC)/monomesimple.cpp $(DIR_SRC)/monomesimple.hpp $(DIR_SRC)/fonction.hpp $(DIR_SRC)/variable.hpp
+	$(CC) -c $(DIR_SRC)/monomesimple.cpp -o $(DIR_OBJ)/monomesimple.o $(CFLAGS)
+
+$(DIR_OBJ)/sinus.o: $(DIR_SRC)/sinus.cpp $(DIR_SRC)/sinus.hpp $(DIR_SRC)/fonction.hpp $(DIR_SRC)/variable.hpp
+	$(CC) -c $(DIR_SRC)/sinus.cpp -o $(DIR_OBJ)/sinus.o $(CFLAGS)
+
 $(DIR_OBJ)/fonctionhandler.o: $(DIR_SRC)/fonctionhandler.cpp $(DIR_SRC)/fonctionhandler.hpp $(DIR_SRC)/fonction.hpp $(DIR_SRC)/singleton.hpp
 	$(CC) -c $(DIR_SRC)/fonctionhandler.cpp -o $(DIR_OBJ)/fonctionhandler.o $(CFLAGS)
+
+$(DIR_OBJ)/somme.o: $(DIR_SRC)/somme.cpp $(DIR_SRC)/somme.hpp $(DIR_SRC)/fonction.hpp $(DIR_SRC)/variable.hpp
+	$(CC) -c $(DIR_SRC)/somme.cpp -o $(DIR_OBJ)/somme.o $(CFLAGS)
 
 clean:
 	rm $(DIR_OBJ)/*.o
