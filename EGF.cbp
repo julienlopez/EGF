@@ -32,6 +32,8 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="src\constante.cpp" />
+		<Unit filename="src\constante.hpp" />
 		<Unit filename="src\fonction.cpp" />
 		<Unit filename="src\fonction.hpp" />
 		<Unit filename="src\fonctionhandler.cpp" />
@@ -42,6 +44,8 @@
 		<Unit filename="src\monome.hpp" />
 		<Unit filename="src\monomesimple.cpp" />
 		<Unit filename="src\monomesimple.hpp" />
+		<Unit filename="src\produit.cpp" />
+		<Unit filename="src\produit.hpp" />
 		<Unit filename="src\singleton.hpp" />
 		<Unit filename="src\sinus.cpp" />
 		<Unit filename="src\sinus.hpp" />

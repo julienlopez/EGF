@@ -14,9 +14,11 @@ int main()
 
 	cerr << m << endl;
 
-	MonomeSimple& m2 = *m.derivee(u);
+	Fonction& m2 = *m.derivee(u);
 	cerr << m2 << endl;
 
 	MonomeSimple& m3 = *m.primitive(u);
 	cerr << m3 << endl;
+
+	cerr << *m2.derivee(u) << endl;
 }

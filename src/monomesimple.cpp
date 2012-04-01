@@ -1,4 +1,5 @@
 #include "monomesimple.hpp"
+#include "constante.hpp"
 
 #include <cassert>
 
@@ -21,10 +22,10 @@ MonomeSimple::MonomeSimple(const MonomeSimple& m) // : MonomeSimple(m.m_v, m.m_m
 MonomeSimple::~MonomeSimple()
 {}
 
-MonomeSimple* MonomeSimple::derivee(Variable* v) const
+Fonction* MonomeSimple::derivee(Variable* v) const
 {
     if(v != *getVariables().begin()) return clone();
-    //if(m_exposant == 1) return new Constante(m_multiplicateur);
+    if(m_exposant == 1) return new Constante(m_multiplicateur);
     return new MonomeSimple(v, m_multiplicateur*m_exposant, m_exposant-1);
 }
 

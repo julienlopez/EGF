@@ -15,8 +15,8 @@ all: $(DIR_BIN)/$(EXEC)
 Debug: all
 Release: all
 
-$(DIR_BIN)/$(EXEC): $(DIR_OBJ)/main.o $(DIR_OBJ)/variable.o $(DIR_OBJ)/fonction.o $(DIR_OBJ)/monome.o $(DIR_OBJ)/monomesimple.o $(DIR_OBJ)/variablehandler.o $(DIR_OBJ)/fonctionhandler.o $(DIR_OBJ)/sinus.o $(DIR_OBJ)/somme.o
-	$(CC) $(DIR_OBJ)/main.o $(DIR_OBJ)/variable.o $(DIR_OBJ)/fonction.o $(DIR_OBJ)/monome.o $(DIR_OBJ)/monomesimple.o $(DIR_OBJ)/variablehandler.o $(DIR_OBJ)/fonctionhandler.o  $(DIR_OBJ)/sinus.o $(DIR_OBJ)/somme.o -o $(DIR_BIN)/$(EXEC)
+$(DIR_BIN)/$(EXEC): $(DIR_OBJ)/main.o $(DIR_OBJ)/variable.o $(DIR_OBJ)/fonction.o $(DIR_OBJ)/monome.o $(DIR_OBJ)/monomesimple.o $(DIR_OBJ)/variablehandler.o $(DIR_OBJ)/fonctionhandler.o $(DIR_OBJ)/sinus.o $(DIR_OBJ)/somme.o $(DIR_OBJ)/produit.o $(DIR_OBJ)/constante.o
+	$(CC) $(DIR_OBJ)/main.o $(DIR_OBJ)/variable.o $(DIR_OBJ)/fonction.o $(DIR_OBJ)/monome.o $(DIR_OBJ)/monomesimple.o $(DIR_OBJ)/variablehandler.o $(DIR_OBJ)/fonctionhandler.o  $(DIR_OBJ)/sinus.o $(DIR_OBJ)/somme.o $(DIR_OBJ)/produit.o $(DIR_OBJ)/constante.o -o $(DIR_BIN)/$(EXEC)
 
 $(DIR_OBJ)/main.o: $(DIR_SRC)/main.cpp $(DIR_SRC)/fonction.hpp $(DIR_SRC)/variable.hpp
 	$(CC) -c $(DIR_SRC)/main.cpp -o $(DIR_OBJ)/main.o $(CFLAGS)
@@ -44,6 +44,12 @@ $(DIR_OBJ)/fonctionhandler.o: $(DIR_SRC)/fonctionhandler.cpp $(DIR_SRC)/fonction
 
 $(DIR_OBJ)/somme.o: $(DIR_SRC)/somme.cpp $(DIR_SRC)/somme.hpp $(DIR_SRC)/fonction.hpp $(DIR_SRC)/variable.hpp
 	$(CC) -c $(DIR_SRC)/somme.cpp -o $(DIR_OBJ)/somme.o $(CFLAGS)
+
+$(DIR_OBJ)/somme.o: $(DIR_SRC)/produit.cpp $(DIR_SRC)/produit.hpp $(DIR_SRC)/fonction.hpp $(DIR_SRC)/variable.hpp
+	$(CC) -c $(DIR_SRC)/produit.cpp -o $(DIR_OBJ)/produit.o $(CFLAGS)
+
+$(DIR_OBJ)/constante.o: $(DIR_SRC)/constante.cpp $(DIR_SRC)/constante.hpp $(DIR_SRC)/fonction.hpp $(DIR_SRC)/variable.hpp
+	$(CC) -c $(DIR_SRC)/constante.cpp -o $(DIR_OBJ)/constante.o $(CFLAGS)
 
 clean:
 	rm $(DIR_OBJ)/*.o

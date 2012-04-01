@@ -11,7 +11,7 @@ class MonomeSimple : public Fonction
 		MonomeSimple(const MonomeSimple& m);
 		virtual ~MonomeSimple();
 
-		virtual MonomeSimple* derivee(Variable* v) const;
+		virtual Fonction* derivee(Variable* v) const;
         virtual MonomeSimple* primitive(Variable* v) const;
         virtual MonomeSimple* clone() const;
 
