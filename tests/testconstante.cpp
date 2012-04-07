@@ -26,7 +26,7 @@ void TestConstante::primitive()
     MonomeSimple* m = dynamic_cast<MonomeSimple*>(f);
     CPPUNIT_ASSERT(m);
     if(!m) return;
-    CPPUNIT_ASSERT(*m == MonomeSimple(v,5));
+    CPPUNIT_ASSERT(*m == *(new MonomeSimple(v,5)));
 }
 
 void TestConstante::clone()
@@ -39,5 +39,8 @@ void TestConstante::clone()
 
 void TestConstante::afficher()
 {
-
+    std::ostringstream oss;
+    Constante& c = *new Constante(5);
+    c.afficher(oss);
+    CPPUNIT_ASSERT(oss.str() == "5");
 }

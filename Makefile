@@ -54,14 +54,18 @@ clean:
 
 #cppunits
 
-test: $(DIR_OBJ)/$(DIR_TESTS)/main.o $(DIR_OBJ)/$(DIR_TESTS)/testconstante.o $(DIR_OBJ)/constante.o $(DIR_OBJ)/variablehandler.o $(DIR_OBJ)/variable.o $(DIR_OBJ)/monomesimple.o $(DIR_OBJ)/fonction.o $(DIR_OBJ)/fonctionhandler.o
-	$(CC) $(DIR_OBJ)/$(DIR_TESTS)/main.o $(DIR_OBJ)/$(DIR_TESTS)/testconstante.o $(DIR_OBJ)/constante.o $(DIR_OBJ)/variablehandler.o $(DIR_OBJ)/variable.o $(DIR_OBJ)/monomesimple.o $(DIR_OBJ)/fonction.o $(DIR_OBJ)/fonctionhandler.o -o $(DIR_BIN)/cppunits $(LDFLAGS_TEST)
+test: $(DIR_OBJ)/$(DIR_TESTS)/main.o $(DIR_OBJ)/$(DIR_TESTS)/testconstante.o $(DIR_OBJ)/$(DIR_TESTS)/testmonomesimple.o $(DIR_OBJ)/constante.o $(DIR_OBJ)/variablehandler.o $(DIR_OBJ)/variable.o $(DIR_OBJ)/monomesimple.o $(DIR_OBJ)/fonction.o $(DIR_OBJ)/fonctionhandler.o
+	$(CC) $(DIR_OBJ)/$(DIR_TESTS)/main.o $(DIR_OBJ)/$(DIR_TESTS)/testconstante.o $(DIR_OBJ)/$(DIR_TESTS)/testmonomesimple.o $(DIR_OBJ)/constante.o $(DIR_OBJ)/variablehandler.o $(DIR_OBJ)/variable.o $(DIR_OBJ)/monomesimple.o $(DIR_OBJ)/fonction.o $(DIR_OBJ)/fonctionhandler.o -o $(DIR_BIN)/cppunits $(LDFLAGS_TEST)
 
 $(DIR_OBJ)/$(DIR_TESTS)/main.o : $(DIR_TESTS)/main.cpp
 	$(CC) -c $(DIR_TESTS)/main.cpp -o $(DIR_OBJ)/$(DIR_TESTS)/main.o $(CFLAGS_TEST)
 
 $(DIR_OBJ)/$(DIR_TESTS)/testconstante.o : $(DIR_TESTS)/testconstante.cpp $(DIR_TESTS)/testconstante.hpp $(DIR_SRC)/variable.hpp $(DIR_SRC)/constante.hpp
 	$(CC) -c $(DIR_TESTS)/testconstante.cpp -o $(DIR_OBJ)/$(DIR_TESTS)/testconstante.o $(CFLAGS_TEST)
+
+$(DIR_OBJ)/$(DIR_TESTS)/testmonomesimple.o : $(DIR_TESTS)/testmonomesimple.cpp $(DIR_TESTS)/testmonomesimple.hpp $(DIR_SRC)/variable.hpp $(DIR_SRC)/monomesimple.hpp
+	$(CC) -c $(DIR_TESTS)/testmonomesimple.cpp -o $(DIR_OBJ)/$(DIR_TESTS)/testmonomesimple.o $(CFLAGS_TEST)
+
 
 #$(DIR_OBJ)/$(DIR_TESTS)/testvecteur.o: $(DIR_TESTS)/testvecteur.cpp $(DIR_TESTS)/testvecteur.hpp $(DIR_SRC)/vecteur.hpp
 #	$(CC) -c $(DIR_TESTS)/testvecteur.cpp -o $(DIR_OBJ)/$(DIR_TESTS)/testvecteur.o $(CFLAGS)

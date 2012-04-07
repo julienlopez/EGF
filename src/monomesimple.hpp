@@ -5,13 +5,15 @@
 
 class MonomeSimple : public Fonction
 {
+    friend class TestMonomeSimple;
+
 	public:
 		MonomeSimple() = delete;
 		MonomeSimple(Variable* v, double multiplicateur = 1, uint exposant = 1);
 		MonomeSimple(const MonomeSimple& m);
 		virtual ~MonomeSimple();
 
-		virtual Fonction* derivee(Variable* v) const;
+		virtual MonomeSimple* derivee(Variable* v) const;
         virtual MonomeSimple* primitive(Variable* v) const;
         virtual MonomeSimple* clone() const;
 
@@ -21,7 +23,6 @@ class MonomeSimple : public Fonction
 
 	protected:
         MonomeSimple(double multiplicateur);
-
         double multiplicateur() const;
         uint exposant()const;
 

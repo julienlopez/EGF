@@ -30,7 +30,7 @@ MonomeSimple::MonomeSimple(const MonomeSimple& m) // : MonomeSimple(m.m_v, m.m_m
 MonomeSimple::~MonomeSimple()
 {}
 
-Fonction* MonomeSimple::derivee(Variable* v) const
+MonomeSimple* MonomeSimple::derivee(Variable* v) const
 {
     if(v != *getVariables().begin()) return clone();
     if(m_exposant == 1) return new Constante(m_multiplicateur);
