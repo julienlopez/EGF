@@ -18,8 +18,9 @@ public:
 
 	operator double() const;
 
+	bool operator == (const Constante& c) const;
+
 private:
-    double m_valeur;
     Constante(const Constante& s);
 };
 

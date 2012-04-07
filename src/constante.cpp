@@ -13,7 +13,7 @@ Constante* Constante::derivee(Variable*) const
 
 MonomeSimple* Constante::primitive(Variable* v) const
 {
-    return new MonomeSimple(v, m_valeur);
+    return new MonomeSimple(v, multiplicateur());
 }
 
 Constante* Constante::clone() const
@@ -23,12 +23,17 @@ Constante* Constante::clone() const
 
 void Constante::afficher(std::ostream& o) const
 {
-    o << m_valeur;
+    o << multiplicateur();
 }
 
 Constante::operator double() const
 {
     return multiplicateur();
+}
+
+bool Constante::operator == (const Constante& c) const
+{
+    return multiplicateur() == c.multiplicateur();
 }
 
 Constante::Constante(const Constante& c): MonomeSimple(c.multiplicateur())

@@ -17,6 +17,8 @@ class MonomeSimple : public Fonction
 
 		virtual void afficher(std::ostream& o) const;
 
+		bool operator==(const MonomeSimple& m) const;
+
 	protected:
         MonomeSimple(double multiplicateur);
 

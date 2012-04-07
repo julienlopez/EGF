@@ -63,6 +63,11 @@ void MonomeSimple::afficher(std::ostream& o) const
 	if(m_exposant > 1) o << "^" << m_exposant;
 }
 
+bool MonomeSimple::operator==(const MonomeSimple& m) const
+{
+    return m_v == m.m_v && m_multiplicateur == m.m_multiplicateur && m_exposant == m.m_exposant;
+}
+
 double MonomeSimple::multiplicateur() const
 {
     return m_multiplicateur;
