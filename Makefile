@@ -1,7 +1,7 @@
 CC=g++
 CFLAGS= -std=gnu++0x -Wall -I include
-CFLAGS_TEST=-Wall -I include
-LDFLAGS_TEST= -lcppunit
+CFLAGS_TEST= -std=gnu++0x -Wall -I include -IC:\prog\cppunit-1.12.1\include
+LDFLAGS_TEST= -LC:\prog\cppunit-1.12.1\lib -lcppunit
 EXEC=EGL
 
 #dirs
@@ -45,9 +45,6 @@ $(DIR_OBJ)/fonctionhandler.o: $(DIR_SRC)/fonctionhandler.cpp $(DIR_SRC)/fonction
 $(DIR_OBJ)/somme.o: $(DIR_SRC)/somme.cpp $(DIR_SRC)/somme.hpp $(DIR_SRC)/fonction.hpp $(DIR_SRC)/variable.hpp
 	$(CC) -c $(DIR_SRC)/somme.cpp -o $(DIR_OBJ)/somme.o $(CFLAGS)
 
-$(DIR_OBJ)/somme.o: $(DIR_SRC)/produit.cpp $(DIR_SRC)/produit.hpp $(DIR_SRC)/fonction.hpp $(DIR_SRC)/variable.hpp
-	$(CC) -c $(DIR_SRC)/produit.cpp -o $(DIR_OBJ)/produit.o $(CFLAGS)
-
 $(DIR_OBJ)/constante.o: $(DIR_SRC)/constante.cpp $(DIR_SRC)/constante.hpp $(DIR_SRC)/fonction.hpp $(DIR_SRC)/variable.hpp
 	$(CC) -c $(DIR_SRC)/constante.cpp -o $(DIR_OBJ)/constante.o $(CFLAGS)
 
@@ -57,11 +54,14 @@ clean:
 
 #cppunits
 
-test: $(DIR_OBJ)/$(DIR_TESTS)/main.o
-	$(CC) $(DIR_OBJ)/$(DIR_TESTS)/main.o -o $(DIR_BIN)/cppunits $(LDFLAGS_TEST)
+test: $(DIR_OBJ)/$(DIR_TESTS)/main.o $(DIR_OBJ)/$(DIR_TESTS)/testconstante.o $(DIR_OBJ)/constante.o $(DIR_OBJ)/variablehandler.o $(DIR_OBJ)/variable.o $(DIR_OBJ)/monomesimple.o $(DIR_OBJ)/fonction.o $(DIR_OBJ)/fonctionhandler.o
+	$(CC) $(DIR_OBJ)/$(DIR_TESTS)/main.o $(DIR_OBJ)/$(DIR_TESTS)/testconstante.o $(DIR_OBJ)/constante.o $(DIR_OBJ)/variablehandler.o $(DIR_OBJ)/variable.o $(DIR_OBJ)/monomesimple.o $(DIR_OBJ)/fonction.o $(DIR_OBJ)/fonctionhandler.o -o $(DIR_BIN)/cppunits $(LDFLAGS_TEST)
 
 $(DIR_OBJ)/$(DIR_TESTS)/main.o : $(DIR_TESTS)/main.cpp
 	$(CC) -c $(DIR_TESTS)/main.cpp -o $(DIR_OBJ)/$(DIR_TESTS)/main.o $(CFLAGS_TEST)
+
+$(DIR_OBJ)/$(DIR_TESTS)/testconstante.o : $(DIR_TESTS)/testconstante.cpp $(DIR_TESTS)/testconstante.hpp $(DIR_SRC)/variable.hpp $(DIR_SRC)/constante.hpp
+	$(CC) -c $(DIR_TESTS)/testconstante.cpp -o $(DIR_OBJ)/$(DIR_TESTS)/testconstante.o $(CFLAGS_TEST)
 
 #$(DIR_OBJ)/$(DIR_TESTS)/testvecteur.o: $(DIR_TESTS)/testvecteur.cpp $(DIR_TESTS)/testvecteur.hpp $(DIR_SRC)/vecteur.hpp
 #	$(CC) -c $(DIR_TESTS)/testvecteur.cpp -o $(DIR_OBJ)/$(DIR_TESTS)/testvecteur.o $(CFLAGS)

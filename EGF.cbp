@@ -28,33 +28,117 @@
 					<Add option="-s" />
 				</Linker>
 			</Target>
+			<Target title="test">
+				<Option output="EGF" prefix_auto="1" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
+			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="src\constante.cpp" />
-		<Unit filename="src\constante.hpp" />
-		<Unit filename="src\fonction.cpp" />
-		<Unit filename="src\fonction.hpp" />
-		<Unit filename="src\fonctionhandler.cpp" />
-		<Unit filename="src\fonctionhandler.hpp" />
-		<Unit filename="src\global.hpp" />
-		<Unit filename="src\main.cpp" />
-		<Unit filename="src\monome.cpp" />
-		<Unit filename="src\monome.hpp" />
-		<Unit filename="src\monomesimple.cpp" />
-		<Unit filename="src\monomesimple.hpp" />
-		<Unit filename="src\produit.cpp" />
-		<Unit filename="src\produit.hpp" />
-		<Unit filename="src\singleton.hpp" />
-		<Unit filename="src\sinus.cpp" />
-		<Unit filename="src\sinus.hpp" />
-		<Unit filename="src\somme.cpp" />
-		<Unit filename="src\somme.hpp" />
-		<Unit filename="src\variable.cpp" />
-		<Unit filename="src\variable.hpp" />
-		<Unit filename="src\variablehandler.cpp" />
-		<Unit filename="src\variablehandler.hpp" />
+		<Unit filename="Makefile">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src\constante.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src\constante.hpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src\fonction.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src\fonction.hpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src\fonctionhandler.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src\fonctionhandler.hpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src\global.hpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src\main.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src\monome.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src\monome.hpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src\monomesimple.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src\monomesimple.hpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src\produit.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src\produit.hpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src\singleton.hpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src\sinus.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src\sinus.hpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src\somme.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src\somme.hpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src\variable.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src\variable.hpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src\variablehandler.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src\variablehandler.hpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="tests\main.cpp" />
+		<Unit filename="tests\testconstante.cpp" />
+		<Unit filename="tests\testconstante.hpp" />
+		<Unit filename="tests\testvariable.cpp" />
+		<Unit filename="tests\testvariable.hpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
