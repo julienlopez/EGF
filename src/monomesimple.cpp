@@ -5,10 +5,18 @@
 
 MonomeSimple::MonomeSimple(Variable* v, double multiplicateur, uint exposant)
 {
+    assert(v);
     m_v = v;
     m_multiplicateur = multiplicateur;
     m_exposant = exposant;
     addVariable(v);
+}
+
+MonomeSimple::MonomeSimple(double multiplicateur)
+{
+    m_v = 0;
+    m_multiplicateur = multiplicateur;
+    m_exposant = 0;
 }
 
 MonomeSimple::MonomeSimple(const MonomeSimple& m) // : MonomeSimple(m.m_v, m.m_multiplicateur, m.m_exposant) //WARNING necessite gcc4.7
@@ -55,3 +63,12 @@ void MonomeSimple::afficher(std::ostream& o) const
 	if(m_exposant > 1) o << "^" << m_exposant;
 }
 
+double MonomeSimple::multiplicateur() const
+{
+    return m_multiplicateur;
+}
+
+uint MonomeSimple::exposant()const
+{
+    return m_exposant;
+}

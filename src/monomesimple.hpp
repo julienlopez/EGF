@@ -18,6 +18,10 @@ class MonomeSimple : public Fonction
 		virtual void afficher(std::ostream& o) const;
 
 	protected:
+        MonomeSimple(double multiplicateur);
+
+        double multiplicateur() const;
+        uint exposant()const;
 
 	private:
         Variable* m_v;

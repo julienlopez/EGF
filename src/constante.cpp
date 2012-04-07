@@ -1,7 +1,6 @@
 #include "constante.hpp"
-#include "monomesimple.hpp"
 
-Constante::Constante(double d): m_valeur(d)
+Constante::Constante(double d): MonomeSimple(d)
 {}
 
 Constante::~Constante()
@@ -12,7 +11,7 @@ Constante* Constante::derivee(Variable*) const
     return new Constante(0);
 }
 
-Fonction* Constante::primitive(Variable* v) const
+MonomeSimple* Constante::primitive(Variable* v) const
 {
     return new MonomeSimple(v, m_valeur);
 }
@@ -27,5 +26,10 @@ void Constante::afficher(std::ostream& o) const
     o << m_valeur;
 }
 
-Constante::Constante(const Constante& c): m_valeur(c.m_valeur)
+Constante::operator double() const
+{
+    return multiplicateur();
+}
+
+Constante::Constante(const Constante& c): MonomeSimple(c.multiplicateur())
 {}
