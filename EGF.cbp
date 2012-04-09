@@ -137,8 +137,16 @@
 		<Unit filename="tests\main.cpp" />
 		<Unit filename="tests\testconstante.cpp" />
 		<Unit filename="tests\testconstante.hpp" />
+		<Unit filename="tests\testmonomesimple.cpp" />
+		<Unit filename="tests\testmonomesimple.hpp" />
 		<Unit filename="tests\testvariable.cpp" />
 		<Unit filename="tests\testvariable.hpp" />
+		<Unit filename="tools\Makefile">
+			<Option compilerVar="CC" />
+			<Option compile="1" />
+			<Option link="1" />
+		</Unit>
+		<Unit filename="tools\classmaker\main.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

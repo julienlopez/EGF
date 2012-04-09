@@ -1,3 +1,5 @@
 bin/*
 obj/*.o
 obj/tests/*.o
+tools/bin/*
+tools/obj/*
