@@ -48,6 +48,9 @@ $(DIR_OBJ)/somme.o: $(DIR_SRC)/somme.cpp $(DIR_SRC)/somme.hpp $(DIR_SRC)/fonctio
 $(DIR_OBJ)/constante.o: $(DIR_SRC)/constante.cpp $(DIR_SRC)/constante.hpp $(DIR_SRC)/fonction.hpp $(DIR_SRC)/variable.hpp
 	$(CC) -c $(DIR_SRC)/constante.cpp -o $(DIR_OBJ)/constante.o $(CFLAGS)
 
+$(DIR_OBJ)/produit.o: $(DIR_SRC)/produit.cpp $(DIR_SRC)/produit.hpp $(DIR_SRC)/fonction.hpp $(DIR_SRC)/variable.hpp
+	$(CC) -c $(DIR_SRC)/produit.cpp -o $(DIR_OBJ)/produit.o $(CFLAGS)
+	
 clean:
 	rm $(DIR_OBJ)/*.o
 	rm $(DIR_OBJ)/$(DIR_TESTS)/*.o
